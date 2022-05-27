@@ -8,7 +8,6 @@ from appilog.common.system.types.vectors import ObjectStateHolderVector
 def execute_post(url, urn, headers, body):
     uri = url + urn
     r = requests.post(uri, headers=headers, json=body, verify=False)
-    logger.debug('_________________POST request results___________')
     res = r.json()
     return res
 
@@ -45,7 +44,6 @@ def DiscoveryMain(Framework):
         host = "10.3.6.78"
 
         url = protocol + '://' + host + ":" + port
-
         headers = authenticate(url)
 
         body = {"name": "get_nodes_to_delete",
@@ -62,10 +60,7 @@ def DiscoveryMain(Framework):
             del_ci_uri = protocol + '://' + host + ":" + port + "/rest-api/dataModel/ci/" + ciId
             r = requests.delete(del_ci_uri, headers=headers, verify=False)
             if r.status_code != 200:
-                logger.debug("___Couldnt delete CI ___", ci2id)
-                logger.debug("status code", r.status_code)
                 res = r.json()
-                logger.debug(res)
     except Exception, e:
         logger.debug("smth was wrong ", e)
 
