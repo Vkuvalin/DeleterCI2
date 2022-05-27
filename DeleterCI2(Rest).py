@@ -1,7 +1,3 @@
-"""
-Скрипт предназначен для создания подключения к UCMDB через Rest Api: создания КЕ и удаления КЕ.
-"""
-
 #coding=utf-8
 
 import rest_requests as requests
