@@ -17,7 +17,7 @@ def authenticate(url):
     headers = {"Content-Type": "application/json"}
     body={"username": "user", "password": "passwd", "clientContext": 1}
     out = execute_post(url, urn, headers, body)
-    # out = r.json()
+    
     token = out["token"]
     headers = {"Authorization": "Bearer " + token, "Content-Type": "application/json; charset=utf-8"}
     return headers
@@ -40,8 +40,8 @@ def DiscoveryMain(Framework):
     try:
         #change hardcode to get credentials
         protocol = "https"
-        port = "8443"
-        host = "10.3.6.78"
+        port = "указывается нужный порт"
+        host = "указывается нужный ip"
 
         url = protocol + '://' + host + ":" + port
         headers = authenticate(url)
